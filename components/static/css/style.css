@@ -1,0 +1,215 @@
+html {
+  height: 100%;
+}
+
+body {
+  padding: 20px;
+  height: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f0f3f8;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-form-label {
+  max-width: 300px;
+}
+
+#configTabs a.nav-link {
+  padding: 10px 15px;
+  font-size: 0.875rem;
+  text-align: center;
+  background: #fafafa;
+  color: #c8c9cb;
+  margin-right: 5px;
+  min-width: 90px;
+  margin-top: 3px;
+}
+
+#configTabs a.nav-link.active {
+  color: rgb(16 88 244) !important;
+  border-top: 3px solid rgb(16 88 244) !important;
+  font-weight: bold;
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 0 4px #bdbcbc;
+  padding: 12px 15px;
+  margin-top: 0px;
+}
+
+.config-form-container, #constraint, #output {
+  padding-top: 15px;
+}
+
+select:invalid { color: gray; }
+
+.tab-content {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 4px #bdbcbc;
+  padding: 16px 0;
+  overflow: hidden;
+}
+
+p.form-control-lg {
+  padding-left: 0px;
+}
+
+form label {
+  color: #333;
+  font-size: 1rem !important;
+}
+
+.form-group {
+  margin-bottom: .8rem;
+}
+
+.objectFunc-section {
+  margin-bottom: 10px;
+  width: 100%;
+  border-color: #d8d8d8!important;
+}
+
+.objectFunc-section .card-header {
+  padding: 0.2rem 0.5rem
+}
+
+.constraint-header {
+  color: blue;
+  font-weight: bold;
+  padding-right: 0px;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.row.constraint-detail {
+  margin-bottom: 10px;
+}
+
+.tab-tab .row {
+  height: 100%;
+}
+
+.tab-tab .row .pill {
+  border-right: 1px solid #e8e8e8;
+  max-width: 250px;
+}
+#configTabs {
+  padding: 0 15px;
+  border: none;
+}
+
+.container .tab-content>.tab-pane {
+  height: 100%;
+  overflow: auto;
+  padding: 0 16px;
+}
+
+.tab-tab-nav {
+  margin-right: -15px;
+  border-top: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
+  font-size: .8rem;
+}
+
+.tab-tab-nav a.nav-link {
+  border-bottom: 1px solid #e8e8e8;
+  color: #c8c9cb;
+}
+
+.tab-tab-nav .nav-link.active {
+  border-radius: 0;
+  color: #fff;
+  background: rgb(16 88 244);
+}
+
+#constraint-tabContent, #output-tabContent {
+  margin-left: -15px;
+  box-shadow: none;
+  padding: 0 16px;
+}
+
+#constraint-tab3, #constraint-tab4, #constraint-tab5, #output-defaultSettiings, #output-customize {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.submitBtn {
+  margin-top: 15px;
+}
+
+.submitBtn .col {
+  text-align: right;
+}
+
+#objectFuncList {
+  padding-top: 15px;
+}
+
+.customize-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.customize-row input{
+  margin-right: 5px;
+  flex: 1;
+}
+
+.customizeBtn {
+  display: flex;
+  padding: 5px 0;
+}
+
+.customizeBtn .btn {
+  flex: 1;
+  border-width: 1px;
+  color: rgba(0,0,0,.85);
+  background: #fff;
+  border-color: #d9d9d9;
+  border-style: dashed;
+} 
+
+.customizeBtn .btn:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.customizeBtn div {
+  width: 23px;
+}
+
+#saveCustomizeBtn, #saveCustomizeConstraintBtn {
+  margin-left: 10px;
+}
+
+#remove-customize {
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+input::placeholder {
+  color: lightgray !important;
+}
+
+textarea::placeholder {
+  color: lightgray !important;
+}

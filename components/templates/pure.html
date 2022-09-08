@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>数据稳态检测</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css').lstrip('/') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css').lstrip('/') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toastr.min.css').lstrip('/') }}">
+</head>
+
+<script>
+function test(Names){
+  for (var i=1;i<4;i++){    //  更改数字4可以改变选择的内容数量，在下拉总数值的基础上+1.比如：下拉菜单有5个值，则4变成6
+      var tempname="mune_x"+i;
+      var NewsHot="x"+i;    //  “X”是ID名称，比如：ID命名为“case1”，这里的“X”即为“case”
+      if (Names === tempname){
+          Nnews = document.getElementById(NewsHot);
+          Nnews.style.display='block';
+      }else{
+          Nnews = document.getElementById(NewsHot);
+          Nnews.style.display='none';
+      }
+  }
+}
+</script>
+
+<body>
+ <div class="container">
+    <ul class="nav nav-tabs" id="configTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="parameter-tab" data-toggle="tab" href="#parameter" role="tab" aria-controls="parameter"
+          aria-selected="false">参数配置</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="configs">
+      <div class="tab-pane fade show active" id="parameter" role="tabpanel" aria-labelledby="parameter-tab">
+        <div class="container config-form-container">
+          <form id="parameter-config-form">
+
+            <div class="form-group row ">
+              <label for="algoName" class="col-4 col-form-label">算法名称：</label>
+              <div class="col-8">
+                <select name="name" class="form-control" id="algoName" onChange="test('mune_x'+this.value)" required>
+                  <option id= "select" value="0" disabled selected hidden>选择算法</option>
+                  <option id= "R-检测" value="1">R 检测法</option>
+                  <option id= "T-检测" value="2">T 检测法</option>
+                  <option id= "F-检测" value="3">F 检测法</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="x1" style="display:none">
+                <div class="form-group row">
+                  <label for="algoDesc1" class="col-4 col-form-label col-form-label">算法描述：</label>
+                  <div class="col-8">
+                      <input type="text" readonly class="form-control-plaintext" id="algoDesc1" value="<%= selectedAlgo.desc %>">
+                  </div>
+                </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">R：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L1：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L2：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L3：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+
+              
+              <div class="row submitBtn">
+                <div class="col-4 col-form-label col-form-label"></div>
+                <div class="col-8 col">
+                  <button class="btn btn-primary">保 存</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="x2" style="display:none">
+                <div class="form-group row">
+                  <label for="algoDesc2" class="col-4 col-form-label col-form-label">算法描述：</label>
+                  <div class="col-8">
+                      <input type="text" readonly class="form-control-plaintext" id="algoDesc2" value="<%= selectedAlgo.desc %>">
+                  </div>
+                </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">T：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L1：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L2：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L3：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="row submitBtn">
+                <div class="col-4 col-form-label col-form-label"></div>
+                <div class="col-8 col">
+                  <button class="btn btn-primary">保 存</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="x3" style="display:none">
+                <div class="form-group row">
+                  <label for="algoDesc3" class="col-4 col-form-label col-form-label">算法描述：</label>
+                  <div class="col-8">
+                      <input type="text" readonly class="form-control-plaintext" id="algoDesc3" value="<%= selectedAlgo.desc %>">
+                  </div>
+                </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">F：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L1：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L2：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-top: 10px;">
+                <label for="parameter" class="col-4 col-form-label">L3：</label>
+                <div class="col-8">
+                  <input type="text" name="desc" class="form-control" value="" placeholder="占位提示文本"/>
+                </div>
+              </div>
+              <div class="row submitBtn">
+                <div class="col-4 col-form-label col-form-label"></div>
+                <div class="col-8 col">
+                  <button class="btn btn-primary">保 存</button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.5.1.min.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.bundle.min.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/jquery.serializejson.min.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/toastr.min.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/mitt.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/engine/template.js').lstrip('/') }}"></script>
+  <script  type="text/javascript" src="{{ url_for('static',filename='js/engine/app.js').lstrip('/') }}"></script>
+
+</body>
+</html>

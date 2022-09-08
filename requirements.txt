@@ -1,0 +1,2 @@
+suanpan-core>=0.16.8
+flask>=2.0.2
