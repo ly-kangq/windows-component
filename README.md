@@ -16,7 +16,6 @@
 
 如果是个人开发使用，你可以将算盘的组件路径设置到本地的项目地址，配置入口命令之后即可运行组件，这样比较方便开发调试。如果你想把组件放到其他机器的算盘上使用，推荐使用 pyinstaller 打包成 exe 文件。
 
-
 ### 虚拟环境
 
 为了防止不同组件之间 python 依赖的冲突，我们采用 python venv 来制作 Windows 环境下的组件。你可以使用自己已有的环境，也可以由 IDE 自动生成虚拟环境。如果你要自己手动创建虚拟环境，执行以下命令。创建完虚拟环境之后，请安装所需 python 依赖。
@@ -41,8 +40,9 @@ pip install -r .\requirements.txt
 E:\github\windows-component
 # 启动命令:
 .\venv\Scripts\python.exe .\run.py components.hello_world.app
+# 或者:
+.\venv\Scripts\python.exe components.hello_world.py
 ```
-
 
 ![component-venv](./doc/venv.png)
 
@@ -53,7 +53,7 @@ E:\github\windows-component
 如果要将组件给其他算盘运行，需要用 pyinstaller 打包，这样可以将组件变成一个可执行程序，同时项目加密代码。
 
 1. 首先安装 pyinstaller；
-
+   
    ```powershell
    # powershell 进入虚拟环境
    .\venv\Scripts\activate.ps1
@@ -64,13 +64,13 @@ E:\github\windows-component
    pip install pyinstaller
    ```
 
-5. **确保** run.py 文件里 `import components`，这能让 pyinstaller 自动发现 components 中的文件；
+2. **确保** run.py 文件里 `import components`，这能让 pyinstaller 自动发现 components 中的文件；
 
-6. 然后使用下面的命令把组件打包成一个 Windows 环境能直接运行的文件包，-n 参数是最终生成的 exe 名字。
-
-    ```powershell
-    pyinstaller --additional-hooks-dir hooks --clean run.py -n win-component
-    ```
+3. 然后使用下面的命令把组件打包成一个 Windows 环境能直接运行的文件包，-n 参数是最终生成的 exe 名字。
+   
+   ```powershell
+   pyinstaller --additional-hooks-dir hooks --clean run.py -n win-component
+   ```
 
 ## 组件添加到算盘
 
