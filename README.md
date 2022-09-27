@@ -40,8 +40,6 @@ pip install -r .\requirements.txt
 E:\github\windows-component
 # 启动命令:
 .\venv\Scripts\python.exe .\run.py components.hello_world.app
-# 或者:
-.\venv\Scripts\python.exe components.hello_world.py
 ```
 
 ![component-venv](./doc/venv.png)
